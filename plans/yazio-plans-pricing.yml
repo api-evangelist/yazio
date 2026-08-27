@@ -1,0 +1,24 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://www.yazio.com/en (2026-08-27) plus probes of /en/pricing, /en/premium
+  and /en/pro; no pricing page is served on yazio.com
+plan_count: 0
+api_plans_published: false
+note: >-
+  YAZIO publishes no API plans, because it publishes no API. It also publishes no
+  web pricing page at all: /en/pricing, /en/premium and /en/pro each return 404,
+  and the site's own navigation carries no pricing link. The consumer product is a
+  freemium subscription (free tier plus "YAZIO PRO") sold entirely through the Apple
+  App Store and Google Play in-app purchase flows, so the price a buyer sees is set
+  per store and per market rather than on a page YAZIO controls. plan_count is 0
+  because there is nothing published to count, and no `Pricing` pointer is wired
+  into apis.yml for the same reason.
+plans: []
+evidence:
+- url: https://www.yazio.com/en/pricing
+  status: 404
+- url: https://www.yazio.com/en/premium
+  status: 404
+- url: https://www.yazio.com/en/pro
+  status: 404

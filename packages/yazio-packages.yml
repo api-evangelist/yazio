@@ -1,0 +1,57 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org and the GitHub Search API, queried 2026-08-27 for
+  YAZIO client libraries
+official_package_count: 0
+summary: >-
+  YAZIO publishes no client libraries of any kind. Every package that speaks to a
+  YAZIO host is third-party reverse-engineering of the private app backend at
+  https://yzapi.yazio.com, and each one says so in its own README. They are recorded
+  here as ecosystem evidence, not as YAZIO SDKs — no `SDKs` pointer is wired into
+  apis.yml, because sdk_count must not credit YAZIO for work it did not ship and
+  does not support.
+packages:
+- name: yazio
+  registry: npm
+  url: https://www.npmjs.com/package/yazio
+  language: TypeScript
+  official: false
+  version: 1.1.3
+  published: '2024-04-24'
+  repository: https://github.com/juriadams/yazio
+  note: >-
+    Community JS/TS client for the undocumented YAZIO API. Last published
+    2024-04-24 — over two years stale against a private API the maintainers
+    warn can change without notice.
+- name: yazio-mcp
+  registry: npm
+  url: https://www.npmjs.com/package/yazio-mcp
+  language: TypeScript
+  official: false
+  version: 0.0.14
+  published: '2026-06-14'
+  repository: https://github.com/fliptheweb/yazio-mcp
+  note: >-
+    Community MCP server for YAZIO user and nutrition data. Its own npm
+    description carries the word "unofficial".
+- name: yazio-sdk
+  registry: pypi
+  url: https://pypi.org/project/yazio-sdk/
+  language: Python
+  official: false
+  version: 0.4.0
+  published: '2026-08-06'
+  repository: https://github.com/yazio-community/yazio-sdk-python
+  note: >-
+    Generated Python client, emitted from the yazio-community OpenAPI
+    description. The `yazio-community` GitHub org (created 2026-08-03) is a
+    community org, not a YAZIO property; its spec repo states YAZIO "does not
+    publish, endorse or support this description".
+absent:
+- registry: pypi
+  name: yazio
+  status: 404
+- registry: npm
+  name: '@juriadams/yazio'
+  status: 404

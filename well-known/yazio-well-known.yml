@@ -1,0 +1,57 @@
+generated: '2026-08-27'
+method: probed
+source: live GET of each /.well-known/ path on every YAZIO host known to the pipeline
+note: >-
+  Every path probed returned 404 on both the marketing host and the private API host.
+  No WellKnown or SecurityTxt pointer is wired into apis.yml, because a recorded
+  absence is not a served surface. www.yazio.com answers 404 for /.well-known/*
+  with a JSON error envelope on some paths and the site's HTML 404 page on others;
+  neither is a document. yzapi.yazio.com answers a bodiless application/json 404
+  on every path.
+hosts:
+- host: www.yazio.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: yzapi.yazio.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null

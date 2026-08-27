@@ -1,0 +1,59 @@
+generated: '2026-08-27'
+method: probed
+source: >-
+  live unauthenticated requests to https://yzapi.yazio.com, 2026-08-27
+  (GET /v15/user, GET /v14/user, POST /v15/oauth/token)
+documented: false
+pointer_withheld: >-
+  No `type: Authentication` pointer is wired into apis.yml. The scoring check it
+  feeds is `authentication_documented`, and YAZIO documents none of this — every
+  field below was read off a live error response, not off a published auth page.
+  Wiring the pointer would credit YAZIO with documentation it has never shipped.
+summary: >-
+  YAZIO's application backend is OAuth 2.0 with a resource-owner-password-credentials
+  grant that additionally requires a confidential client id and secret. The token
+  endpoint's own validation error, returned to an anonymous POST, names the four
+  required fields. Every resource endpoint probed answers 401 to an anonymous
+  request. None of this is published by YAZIO; it is observable only by calling the
+  host the mobile apps call.
+security_schemes:
+- name: oauth2_password
+  type: oauth2
+  flow: password
+  token_endpoint: https://yzapi.yazio.com/v15/oauth/token
+  content_type: application/x-www-form-urlencoded
+  required_parameters:
+  - username
+  - password
+  - client_id
+  - clientSecret
+  - grant_type
+  evidence:
+    url: https://yzapi.yazio.com/v15/oauth/token
+    method: POST
+    http_status: 400
+    body_excerpt: >-
+      [{"property_path":"","message":"Invalid client"},{"property_path":"username",
+      "message":"This value should not be blank."},{"property_path":"password",
+      "message":"This value should not be blank."},{"property_path":"clientSecret",
+      "message":"This value should not be blank."}]
+  note: >-
+    Client credentials are not issuable by any public YAZIO process — there is no
+    developer signup, no application registration and no client-id request form.
+    The credentials in circulation are the ones extracted from the shipped mobile
+    apps by third parties.
+- name: bearer
+  type: http
+  scheme: bearer
+  applied_to: all probed resource endpoints
+  evidence:
+    url: https://yzapi.yazio.com/v15/user
+    method: GET
+    http_status: 401
+scopes: null
+scopes_note: >-
+  No scope surface was observable and none is documented. scopes/ is therefore not
+  emitted rather than emitted empty.
+versions_observed:
+- v14
+- v15

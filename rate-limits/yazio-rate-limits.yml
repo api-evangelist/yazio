@@ -1,0 +1,22 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  search for YAZIO rate-limit documentation plus live response-header inspection
+  of https://yzapi.yazio.com, 2026-08-27
+limit_count: 0
+documented: false
+note: >-
+  No rate limits are documented, because there is no developer documentation. Live
+  anonymous responses from yzapi.yazio.com carry no RateLimit-*, X-RateLimit-* or
+  Retry-After headers, so there is no runtime signal for an agent to read either.
+  An honest zero: nothing published, nothing observable. No `RateLimits` pointer is
+  wired into apis.yml.
+limits: []
+response_headers: []
+exhaustion_status: null
+evidence:
+- url: https://yzapi.yazio.com/v15/user
+  status: 401
+  note: no rate-limit headers present on the response
+- url: https://www.yazio.com/en/developers
+  status: 404

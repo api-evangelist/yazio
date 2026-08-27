@@ -1,7 +1,20 @@
 aid: yazio
 name: YAZIO
-description: 'YAZIO is a company surfaced via the API Evangelist harvest backlog (source: health-device-stack)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'YAZIO GmbH is an Erfurt, Germany based digital health company whose nutrition
+  app pairs calorie and macro tracking with barcode scanning, AI photo food logging,
+  an intermittent-fasting timer, a 3,000-recipe library and body-metric tracking across
+  iOS, Android and the web. The company describes itself as remote-first, cites more
+  than 100 million downloads across over 150 countries, and sells a freemium product:
+  a free tier plus a "YAZIO PRO" subscription transacted through the Apple App Store
+  and Google Play rather than through a pricing page on yazio.com. YAZIO publishes
+  no developer program of any kind — no developer portal, no API reference, no OpenAPI,
+  AsyncAPI or GraphQL contract, no SDKs, no CLI, no MCP server, no changelog, no status
+  page and no security.txt. Its apps talk to a private backend at https://yzapi.yazio.com,
+  which is live but answers 401 with an empty body to anonymous requests and issues
+  OAuth client credentials through no public process. Every YAZIO OpenAPI description,
+  client library and MCP server in circulation is third-party reverse-engineering that
+  states in its own README that it is unofficial and unaffiliated.'
+image: https://images.yazio-cdn.com/process/plain/frontend/web/general/yazio-og-image.png
 url: https://raw.githubusercontent.com/api-evangelist/yazio/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:health-device-stack
@@ -12,6 +25,16 @@ created: '2026-08-27'
 modified: '2026-08-27'
 tags:
 - Company
+- Health
+- Digital Health
+- Nutrition
+- Calorie Tracking
+- Weight Management
+- Intermittent Fasting
+- Fitness
+- Consumer Health
+- Mobile Applications
+- Germany
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,3 +44,66 @@ maintainers:
 common:
 - type: Website
   url: https://www.yazio.com
+- type: Support
+  url: https://help.yazio.com/
+- type: TermsOfService
+  url: https://help.yazio.com/hc/en-us/articles/203444951-Terms-of-Use-Privacy-Policy
+- type: PrivacyPolicy
+  url: https://www.yazio.com/en/privacy
+- type: SignUp
+  url: https://www.yazio.com/en/app/account/register
+- type: GitHubOrganization
+  url: https://github.com/yazio
+- type: LLMsTxt
+  url: llms/yazio-llms.txt
+- type: Packages
+  url: packages/yazio-packages.yml
+- type: DomainSecurity
+  url: security/yazio-domain-security.yml
+x-pointer-liveness:
+  checked: '2026-08-27'
+  note: >-
+    Every pointer above was fetched on 2026-08-27 with a browser User-Agent. The two
+    help.yazio.com URLs answer a Cloudflare "Just a moment..." interstitial (403) to
+    non-browser clients; the pages demonstrably exist and are treated as live per the
+    bot-challenge rule, not as dead pointers.
+  results:
+  - url: https://www.yazio.com
+    status: 200
+  - url: https://help.yazio.com/
+    status: 403
+    verdict: bot-challenge
+  - url: https://help.yazio.com/hc/en-us/articles/203444951-Terms-of-Use-Privacy-Policy
+    status: 403
+    verdict: bot-challenge
+  - url: https://www.yazio.com/en/privacy
+    status: 200
+  - url: https://www.yazio.com/en/app/account/register
+    status: 200
+  - url: https://github.com/yazio
+    status: 200
+x-enrichment:
+  date: '2026-08-27'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    YAZIO's only API is the undocumented private backend at yzapi.yazio.com that its
+    own apps call — it answers 401 with an empty body to anonymous requests, issues
+    OAuth client credentials through no public process, is linked from nowhere on
+    yazio.com, and every OpenAPI, SDK and MCP server for it is third-party
+    reverse-engineering whose own README states YAZIO does not publish, endorse or
+    support it.
+  evidence:
+  - url: https://yzapi.yazio.com/v15/user
+    status: 401
+  - url: https://www.yazio.com/en/developers
+    status: 404
+  - url: https://www.yazio.com/openapi.json
+    status: 404
+  - url: https://yzapi.yazio.com/openapi.json
+    status: 404
+  checked: '2026-08-27'

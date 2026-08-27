@@ -1,0 +1,39 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  npm registry, GitHub Search API and web search for a YAZIO MCP server,
+  2026-08-27; plus live probes of yzapi.yazio.com and www.yazio.com
+status: none
+official_server: false
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+note: >-
+  YAZIO ships no MCP server, hosted or local, and no `MCPServer` pointer is wired
+  into apis.yml. No candidate tool list was derived either: deriving one requires
+  an OpenAPI, and YAZIO publishes no machine-readable contract. Third-party MCP
+  servers for YAZIO do exist and are recorded below purely as ecosystem evidence —
+  they wrap the private app backend at https://yzapi.yazio.com, they are labelled
+  unofficial by their own authors, and they carry no YAZIO endorsement or support.
+third_party_servers:
+- name: yazio-mcp
+  mode: local-stdio
+  install: npx -y yazio-mcp
+  package: https://www.npmjs.com/package/yazio-mcp
+  repository: https://github.com/fliptheweb/yazio-mcp
+  version: 0.0.14
+  published: '2026-06-14'
+  official: false
+- name: yazio-mcp-server
+  mode: local-stdio
+  install: null
+  package: null
+  repository: https://github.com/yazio-community/yazio-mcp-server
+  official: false
+  note: >-
+    Part of the community `yazio-community` org, generated from that org's
+    reverse-engineered OpenAPI description.

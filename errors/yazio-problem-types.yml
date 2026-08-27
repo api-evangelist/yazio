@@ -1,0 +1,54 @@
+generated: '2026-08-27'
+method: probed
+source: >-
+  live unauthenticated requests to https://yzapi.yazio.com, 2026-08-27
+format: proprietary
+rfc9457: false
+pointer_withheld: >-
+  No `type: ErrorCatalog` pointer is wired into apis.yml. YAZIO publishes no error
+  reference; the envelope below was read off live responses to deliberately invalid
+  anonymous requests. The pointer would assert a published catalogue that does not
+  exist.
+envelope:
+  shape: array
+  content_type: application/json
+  description: >-
+    Validation failures return a bare JSON ARRAY of violation objects — no wrapping
+    object, no type/title/status members, no problem+json media type. The member
+    names (property_path, message, invalid_value) are the Symfony Validator
+    constraint-violation shape, which is the strongest available signal that the
+    backend is a Symfony/API-Platform application.
+  members:
+  - name: property_path
+    description: Dotted path of the offending field; empty string for whole-request errors.
+  - name: message
+    description: Human-readable, English, non-localised violation message.
+  - name: invalid_value
+    description: The value that was rejected, echoed back.
+observed:
+- http_status: 400
+  url: https://yzapi.yazio.com/v15/products/search?query=apple
+  body_excerpt: >-
+    [{"property_path":"countries","message":"This value should not be blank.",
+    "invalid_value":""},{"property_path":"countries","message":"This value is too
+    short. It should have 2 characters or more."}]
+  note: >-
+    A required `countries` parameter is undocumented anywhere; the API only reveals
+    it by rejecting the request.
+- http_status: 400
+  url: https://yzapi.yazio.com/v15/oauth/token
+  body_excerpt: '[{"property_path":"","message":"Invalid client","invalid_value":{}}]'
+- http_status: 401
+  url: https://yzapi.yazio.com/v15/user
+  body_excerpt: '<empty body>'
+  note: >-
+    Authentication failure returns 401 with a zero-length body and
+    Content-Type: application/json — no error code, no message, nothing an agent
+    can branch on beyond the status line.
+- http_status: 404
+  url: https://yzapi.yazio.com/v15
+  body_excerpt: '<empty body>'
+gaps:
+- No RFC 9457 problem+json.
+- No stable machine-readable error codes; only English prose messages.
+- 401 and 404 carry empty bodies, so failure reasons are unrecoverable from the payload.
