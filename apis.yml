@@ -14,6 +14,17 @@ description: 'YAZIO GmbH is an Erfurt, Germany based digital health company whos
   OAuth client credentials through no public process. Every YAZIO OpenAPI description,
   client library and MCP server in circulation is third-party reverse-engineering that
   states in its own README that it is unofficial and unaffiliated.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://images.yazio-cdn.com/process/plain/frontend/web/general/yazio-og-image.png
 url: https://raw.githubusercontent.com/api-evangelist/yazio/refs/heads/main/apis.yml
 x-type: company
