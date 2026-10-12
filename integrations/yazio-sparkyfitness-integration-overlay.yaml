@@ -1,0 +1,19 @@
+# DERIVED by build-integration-preconfigs.py (roadmap#949). Overlay on the PARTNER's contract:
+# where sparkyfitness's enum names yazio, and what that value is.
+overlay: 1.0.0
+info:
+  title: yazio as a processor-connection in sparkyfitness's contract
+  version: 1.0.0
+extends: https://raw.githubusercontent.com/api-evangelist/sparkyfitness/refs/heads/main/openapi/sparkyfitness-nutrition-meals-api-openapi.yml
+actions:
+- target: $.paths['/foods/barcode/{barcode}'].get.responses['200'].content['application/json'].schema.properties.source
+  update:
+    x-apievangelist-integration:
+      values:
+        yazio:
+          provider: yazio
+          relationship: processor-connection
+          evidence: https://github.com/api-evangelist/sparkyfitness/blob/main/openapi/sparkyfitness-nutrition-meals-api-openapi.yml
+      method: derived
+      generated: '2026-10-12'
+      generator: build-integration-preconfigs.py

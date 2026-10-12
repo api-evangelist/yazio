@@ -1,0 +1,19 @@
+edges:
+- partner_name: sparkyfitness
+  partner: sparkyfitness
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/sparkyfitness/blob/main/openapi/sparkyfitness-nutrition-meals-api-openapi.yml
+  contract_reference:
+    repo: sparkyfitness
+    spec_file: sparkyfitness-nutrition-meals-api-openapi.yml
+    value: yazio
+    property: 200.content.source
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+generated: '2026-10-12'
+method: searched
+checked: []
