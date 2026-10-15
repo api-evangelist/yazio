@@ -14,6 +14,26 @@ edges:
     property: 200.content.source
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
+- partner_name: Polar (own)
+  partner: polar
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.polar.com/en/compatible-apps
+  mirror_of: polar/integrations/polar-integration-edges.yml
+  apps:
+  - YAZIO - Calorie Counter
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: Polar AccessLink compatible app
 generated: '2026-10-12'
 method: searched
-checked: []
+checked:
+- polar/integrations/polar-integration-edges.yml
+source:
+- polar/integrations/polar-integration-edges.yml
