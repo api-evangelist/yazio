@@ -1,0 +1,82 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 5
+  own: 4
+  other_domain: 0
+  platform: 1
+  roles:
+  - api
+  - other
+  - source
+  - support
+  - website
+hosts:
+- host: api.yazio.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: yazio.com
+  role: api
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.yazio.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Support
+  - TermsOfService
+  serves:
+  - docs
+  - support
+  vendor: zendesk
+  registrable_domain: yazio.com
+  role: support
+  relation: own
+- host: www.yazio.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Newsroom
+  - Blog
+  - Website
+  - PrivacyPolicy
+  - SignUp
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: yazio.com
+  role: website
+  relation: own
+- host: yazio.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: yazio.com
+  role: other
+  relation: own

@@ -1,3 +1,19 @@
+generated: '2026-10-20'
+method: searched
+source:
+- polar/integrations/polar-integration-edges.yml
+- https://zapier.com/apps/yazio/integrations
+- https://n8n.io/integrations/yazio/
+- https://composio.dev/toolkits/yazio
+- https://monid.ai/tools/yazio
+checked:
+- polar/integrations/polar-integration-edges.yml
+- https://composio.dev/toolkits/yazio
+- https://monid.ai/tools/yazio
+- https://n8n.io/integrations/yazio/
+- https://zapier.com/apps/yazio/integrations
+summary: null
+marketplace_apps: []
 edges:
 - partner_name: sparkyfitness
   partner: sparkyfitness
@@ -31,9 +47,4 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: Polar AccessLink compatible app
-generated: '2026-10-12'
-method: searched
-checked:
-- polar/integrations/polar-integration-edges.yml
-source:
-- polar/integrations/polar-integration-edges.yml
+templates: []

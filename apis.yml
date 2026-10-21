@@ -1,5 +1,7 @@
 aid: yazio
+
 name: YAZIO
+
 description: 'YAZIO GmbH is an Erfurt, Germany based digital health company whose nutrition
   app pairs calorie and macro tracking with barcode scanning, AI photo food logging,
   an intermittent-fasting timer, a 3,000-recipe library and body-metric tracking across
@@ -14,6 +16,7 @@ description: 'YAZIO GmbH is an Erfurt, Germany based digital health company whos
   OAuth client credentials through no public process. Every YAZIO OpenAPI description,
   client library and MCP server in circulation is third-party reverse-engineering that
   states in its own README that it is unofficial and unaffiliated.'
+
 deliveryModel:
   model: saas
   open_source: false
@@ -25,6 +28,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: open
@@ -39,15 +43,25 @@ accessModel:
   - security
   generated: '2026-09-02'
   method: derived
+
 image: https://images.yazio-cdn.com/process/plain/frontend/web/general/yazio-og-image.png
+
 url: https://raw.githubusercontent.com/api-evangelist/yazio/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:health-device-stack
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+
+x-tier-reason: enrichment pass 2026-10-20 (local-v5; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-08-27'
+
 modified: '2026-10-06'
+
 tags:
 - Company
 - Health
@@ -60,6 +74,7 @@ tags:
 - Consumer Health
 - Mobile App
 - Germany
+
 tags_raw:
 - Company
 - Health
@@ -72,17 +87,22 @@ tags_raw:
 - Consumer Health
 - Mobile Applications
 - Germany
-apis: []
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
-- type: Plans
-  url: plans/yazio-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/yazio-rate-limits.yml
+- type: Hosts
+  url: hosts/yazio-hosts.yml
+- type: IntegrationEdges
+  url: integrations/yazio-integration-edges.yml
+- type: Vendors
+  url: vendors/yazio-vendors.yml
+- type: Newsroom
+  url: https://www.yazio.com/en/press
 - url: https://www.yazio.com/en/press
   type: Blog
 - type: Website
@@ -97,14 +117,13 @@ common:
   url: https://www.yazio.com/en/app/account/register
 - type: GitHubOrganization
   url: https://github.com/yazio
-- type: LLMsTxt
-  url: llms/yazio-llms.txt
-- type: Packages
-  url: packages/yazio-packages.yml
 - type: DomainSecurity
   url: security/yazio-domain-security.yml
+
+apis: []
+
 x-pointer-liveness:
-  checked: '2026-08-27'
+  checked: '2026-10-20'
   note: >-
     Every pointer above was fetched on 2026-08-27 with a browser User-Agent. The two
     help.yazio.com URLs answer a Cloudflare "Just a moment..." interstitial (403) to
@@ -125,11 +144,13 @@ x-pointer-liveness:
     status: 200
   - url: https://github.com/yazio
     status: 200
+
 x-enrichment:
-  date: '2026-08-27'
+  date: '2026-10-20'
   status: minimal
-  artifacts_added: 9
-  pass: local-v1
+  artifacts_added: 0
+  pass: local-v5
+
 x-coverage:
   state: none
   reason: no-developer-program
@@ -141,12 +162,12 @@ x-coverage:
     reverse-engineering whose own README states YAZIO does not publish, endorse or
     support it.
   evidence:
-  - url: https://yzapi.yazio.com/v15/user
-    status: 401
+  - url: https://yzapi.yazio.com/
+    status: 404
   - url: https://www.yazio.com/en/developers
     status: 404
   - url: https://www.yazio.com/openapi.json
     status: 404
   - url: https://yzapi.yazio.com/openapi.json
     status: 404
-  checked: '2026-08-27'
+  checked: '2026-10-20'
